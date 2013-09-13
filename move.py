@@ -22,11 +22,11 @@ def up_cw(cube):
     
 def left_cw(cube):
     rotate_face_cw(cube[1])
-    rotate_faces_cw(cube, [0, 2, 5, 4], [[1, 4, 7], [1, 4, 7], [1, 4, 7], [8, 5, 2]])
+    rotate_faces_cw(cube, [0, 2, 5, 4], [[0, 3, 6], [0, 3, 6], [0, 3, 6], [8, 5, 2]])
 
 def left_ccw(cube):
     rotate_face_ccw(cube[1])
-    rotate_faces_ccw(cube, [0, 2, 5, 4], [[1, 4, 7], [1, 4, 7], [1, 4, 7], [7, 4, 1]])    
+    rotate_faces_ccw(cube, [0, 2, 5, 4], [[0, 3, 6], [0, 3, 6], [0, 3, 6], [8, 5, 2]])
 
 def front_cw(cube):
     rotate_faces_cw(cube, [0, 3, 5, 1], [[6, 7, 8], [0, 3, 6], [0, 1, 2], [2, 5, 8]])
