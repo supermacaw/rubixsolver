@@ -39,4 +39,15 @@ def parse(filename = "cube.txt"):
         lines.append([l.strip() for l in line])
     return lines
 
-print parse()
+def print2D(cube):
+    cubeString = "d"
+    for face in cube:
+        for square in face:
+            cubeString += square + "\t"
+        cubeString += "\n"
+    return cubeString
+        
+if __name__ == '__main__':
+    cube = parse()
+    print(cube)
+    print2D(cube)
