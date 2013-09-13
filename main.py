@@ -91,7 +91,7 @@ def get2DCubeFolded(cube):
     cubeString += "\n\n"
 
     #Print back
-    cubeString += get3ElementsReversed(cube[4], 0) + "\n" + get3ElementsReversed(cube[4], 1) + "\n" + get3ElementsReversed(cube[4], 2)
+    cubeString += get3Elements(cube[4], 0) + "\n" + get3Elements(cube[4], 1) + "\n" + get3Elements(cube[4], 2)
 
     return cubeString
 
@@ -101,12 +101,6 @@ def get3Elements(lst, index):
     """
     str = ""
     for square in lst[3*index:(3*index)+3]:
-        str += square + "\t"
-    return str
-
-def get3ElementsReversed(lst, index):
-    str = ""
-    for square in lst[(3*index):(3*index)+3:-1]:
         str += square + "\t"
     return str
 
