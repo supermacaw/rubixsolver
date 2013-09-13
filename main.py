@@ -1,3 +1,5 @@
+import move
+
 class Directions:
     """
     Class to represent directions that each face can move.
@@ -115,5 +117,31 @@ if __name__ == '__main__':
     while faceChosen not in Face.LIST:
         faceChosen = str(raw_input("Choose a face to rotate: " + str(Face.LIST) + "\n"))
         
-    move = Move(directionChosen, faceChosen)    
+    moveChosen = Move(directionChosen, faceChosen)
+    if moveChosen.direction == Directions.CLOCKWISE:
+        if moveChosen.face == Face.TOP:
+            move.up_cw(cube)
+        elif moveChosen.face == Face.LEFT:
+            move.left_cw(cube)
+        elif moveChosen.face == Face.FRONT:
+            move.front_cw(cube)
+        elif moveChosen.face == Face.RIGHT:
+            move.right_cw(cube)
+        elif moveChosen.face == Face.BACK:
+            move.back_cw(cube)
+        elif moveChosen.face == Face.BOTTOM:
+            move.bottom_cw(cube)
+    elif moveChosen.direction == Directions.COUNTERCLOCKWISE:
+        if moveChosen.face == Face.TOP:
+            move.up_ccw(cube)
+        elif moveChosen.face == Face.LEFT:
+            move.left_ccw(cube)
+        elif moveChosen.face == Face.FRONT:
+            move.front_ccw(cube)
+        elif moveChosen.face == Face.RIGHT:
+            move.right_ccw(cube)
+        elif moveChosen.face == Face.BACK:
+            move.back_ccw(cube)
+        elif moveChosen.face == Face.BOTTOM:
+            move.bottom_ccw(cube)
     
