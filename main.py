@@ -1,9 +1,3 @@
-f = open('cube.txt', 'r')
-lines = []
-for line in f:
-    lines.append(line.split(","))
-print lines
-
 class Directions:
     """
     Class to represent directions that each face can move.
@@ -36,3 +30,13 @@ class Move:
     
     def getFace(self):
         return self.face
+
+def parse(filename = "cube.txt"):
+    f = open(filename, 'r')
+    lines = []
+    for line in f:
+        line = line.strip().split(",")
+        lines.append([l.strip() for l in line])
+    return lines
+
+print parse()
