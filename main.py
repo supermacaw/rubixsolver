@@ -108,11 +108,13 @@ if __name__ == '__main__':
     print(get2DCubeFolded(cube))
     
     faceChosen = ""
-    while faceChosen.lower() not in Face.LIST:
-        faceChosen = input("Choose a face to rotate: " + str(Face.LIST))
+    while faceChosen not in Face.LIST:
+        faceChosen = str(raw_input("Choose a face to rotate: " + str(Face.LIST) + "\n"))
         
     directionChosen = ""
-    while directionChosen.lower() not in Directions.LIST:
-        directionChosen = input("Choose a direction to rotate: " + Directions.LIST)
+    while directionChosen not in Directions.LIST:
+        directionChosen = raw_input("Choose a direction to rotate: " + str(Directions.LIST) + "\n")
+    
+    move = Move(faceChosen, directionChosen)
     
     
