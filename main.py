@@ -4,6 +4,8 @@ class Directions:
     """
     CLOCKWISE = 'Clockwise'
     COUNTERCLOCKWISE = 'Counterclockwise'
+    LIST = [CLOCKWISE, COUNTERCLOCKWISE]
+
 
 class Face:
     """
@@ -15,6 +17,7 @@ class Face:
     RIGHT = 'RIGHT'
     BACK = 'Back'
     BOTTOM = 'Bottom'
+    LIST = [TOP, LEFT, FRONT, RIGHT, BACK, BOTTOM]
 
 class Move:
     """
@@ -103,5 +106,13 @@ if __name__ == '__main__':
 #     print(cube)
 #     print(get2DCube(cube))
     print(get2DCubeFolded(cube))
+    
+    faceChosen = ""
+    while faceChosen.lower() not in Face.LIST:
+        faceChosen = input("Choose a face to rotate: " + str(Face.LIST))
+        
+    directionChosen = ""
+    while directionChosen.lower() not in Directions.LIST:
+        directionChosen = input("Choose a direction to rotate: " + Directions.LIST)
     
     
