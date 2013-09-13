@@ -40,14 +40,16 @@ def parse(filename = "cube.txt"):
     return lines
 
 def print2D(cube):
-    cubeString = "d"
+    cubeString = ""
     for face in cube:
-        for square in face:
+        for (index,square) in enumerate(face):
+            if index % 3 == 0:
+                cubeString += "\n"
             cubeString += square + "\t"
-        cubeString += "\n"
+        cubeString += "\n\n"
     return cubeString
         
 if __name__ == '__main__':
     cube = parse()
     print(cube)
-    print2D(cube)
+    print(print2D(cube))
