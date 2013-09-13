@@ -17,7 +17,7 @@ class Face:
     TOP = 'Top'
     LEFT = 'Left'
     FRONT = 'Front'
-    RIGHT = 'RIGHT'
+    RIGHT = 'Right'
     BACK = 'Back'
     BOTTOM = 'Bottom'
     LIST = [TOP, LEFT, FRONT, RIGHT, BACK, BOTTOM]
@@ -91,7 +91,7 @@ def get2DCubeFolded(cube):
     cubeString += "\n\n"
 
     #Print back
-    cubeString += get3Elements(cube[4], 0) + "\n" + get3Elements(cube[4], 1) + "\n" + get3Elements(cube[4], 2)
+    cubeString += get3ElementsReversed(cube[4], 0) + "\n" + get3ElementsReversed(cube[4], 1) + "\n" + get3ElementsReversed(cube[4], 2)
 
     return cubeString
 
@@ -104,15 +104,24 @@ def get3Elements(lst, index):
         str += square + "\t"
     return str
 
+def get3ElementsReversed(lst, index):
+    str = ""
+    for square in lst[(3*index):(3*index)+3:-1]:
+        str += square + "\t"
+    return str
+
 def generateRandomCube():
-    cube = parse() #Start with solved cube.
+    randomCube = parse() #Start with solved cube.
     for i in range(0, 50):
         randomDirection = random.choice(Directions.LIST)
         randomFace = random.choice(Face.LIST)
-        makeMove(Move(randomDirection, randomFace))
-    return cube
+        makeMove(randomCube, Move(randomDirection, randomFace))
+    return randomCube
 
-def makeMove(move):
+def makeMove(cube, moveChosen):
+    """
+    Makes moveChosen on cube.
+    """
     if moveChosen.direction == Directions.CLOCKWISE:
         if moveChosen.face == Face.TOP:
             move.up_cw(cube)
@@ -141,19 +150,21 @@ def makeMove(move):
             move.bottom_ccw(cube)
         
 if __name__ == '__main__':
-    cube = parse()
+    inputCube = parse()
 #     print(cube)
 #     print(get2DCube(cube))
-    print(get2DCubeFolded(cube))
     
-    directionChosen = ""
-    while directionChosen not in Directions.LIST:
-        directionChosen = raw_input("Choose a direction to rotate: " + str(Directions.LIST) + "\n")
+    while True:
+        directionChosen = ""
+        while directionChosen not in Directions.LIST:
+            directionChosen = raw_input("Choose a direction to rotate: " + str(Directions.LIST) + "\n")
+            
+        faceChosen = ""
+        while faceChosen not in Face.LIST:
+            faceChosen = str(raw_input("Choose a face to rotate: " + str(Face.LIST) + "\n"))
+            
+        moveChosen = Move(directionChosen, faceChosen)
+        makeMove(inputCube, moveChosen)
+        print(get2DCubeFolded(inputCube))
+
         
-    faceChosen = ""
-    while faceChosen not in Face.LIST:
-        faceChosen = str(raw_input("Choose a face to rotate: " + str(Face.LIST) + "\n"))
-        
-    moveChosen = Move(directionChosen, faceChosen)
-    makeMove(moveChosen)
-    

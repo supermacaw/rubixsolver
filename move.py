@@ -1,6 +1,3 @@
-from main import *
-
-cube = parse()
 
 def bottom_ccw(cube):
     rotate_face_ccw(cube[5])
@@ -96,22 +93,22 @@ def rotate_into(cube, from_face, from_squares, to_face, to_squares):
         cube[from_face][from_squares[i]] = temp[i]
     return cube, 
 
-up_ccw(cube)
-print(print2D(cube))
-up_cw(cube)
-print(print2D(cube))
-
-rotate_faces_cw(cube, [0, 3, 5, 1], [[6, 7, 8], [0, 3, 6], [0, 1, 2], [2, 5, 8]])
-rotate_faces_ccw(cube, [0, 3, 5, 1], [[6, 7, 8], [0, 3, 6], [0, 1, 2], [2, 5, 8]])
-print(print2D(cube))
-
-bottom_ccw(cube)
-print(print2D(cube))
-bottom_cw(cube)
-print(print2D(cube))
-
-right_ccw(cube)
-print(print2D(cube))
-right_cw(cube)
-print(print2D(cube))
+# up_ccw(cube)
+# print(print2D(cube))
+# up_cw(cube)
+# print(print2D(cube))
+# 
+# rotate_faces_cw(cube, [0, 3, 5, 1], [[6, 7, 8], [0, 3, 6], [0, 1, 2], [2, 5, 8]])
+# rotate_faces_ccw(cube, [0, 3, 5, 1], [[6, 7, 8], [0, 3, 6], [0, 1, 2], [2, 5, 8]])
+# print(print2D(cube))
+# 
+# bottom_ccw(cube)
+# print(print2D(cube))
+# bottom_cw(cube)
+# print(print2D(cube))
+# 
+# right_ccw(cube)
+# print(print2D(cube))
+# right_cw(cube)
+# print(print2D(cube))
 
