@@ -104,3 +104,4 @@ if __name__ == '__main__':
 #     print(get2DCube(cube))
     print(get2DCubeFolded(cube))
     
+    
